@@ -57,6 +57,8 @@ def main(argv):
           print("Usable for DOS will be %d (bytes)" % (harddisksize) )
 
           # Writing the "ABOOT" header as a 512 bytes header to the hdd image file
+          fin.close()
+          fin  = open(filename, "rb")
           fout = open(ofilestring,"wb")
           fout.write(struct.pack(">8sHHH",
                                   b"ABOOT\0\0\0",
@@ -64,8 +66,11 @@ def main(argv):
                                   sectors,
                                   cylinders))
           fout.write(bytearray(b'\xf6'*(512-14)))
+          fout.write(fin.read())
           fout.close()
+          fin.close()
           print("Copy the file '%s' to your Amiga and use it as a PC virtual harddisk for a Bridgeboard." % (ofilestring) )
+          exit()
 
       else:
           print("bye bye...")
