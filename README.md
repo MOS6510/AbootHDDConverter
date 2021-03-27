@@ -8,4 +8,4 @@ This tool helps you to convert these files in both directions:
 
 **DOSBox HDD File => ABoot Amiga HDD file**
 
-Usefull if you convert complete hard disk images to/from Amiga. 
+Usefull if you want to create hard disk files for your Amiga Bridgeboard on Mac/Windowsd/Linux or to read and modify these files with DOSBox / Bochs.
