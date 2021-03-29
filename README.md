@@ -1,7 +1,7 @@
 # ABOOT HDD Image Converter
-Small tool to convert Amiga PC Bridgeboard (A2088/A2286/A2386) virtual HDD files to harddisk images usable with DOSBox or Bochs DOS emulators on Windows/Linux/Mac.
+A small tool to convert Amiga PC Bridgeboard (A2088/A2286/A2386) virtual HDD files to harddisk images usable with DOSBox or Bochs DOS emulators on Windows/Linux/Mac and vice versa.
 
-Since Amiga PC virtual hardfiles are raw HDD files with only a small header (containing geometry), you can not use it out-of-the-box with a DOS emulator on Windows/Linux/Mac like DOSBox or bochs. This tool helps you to convert these files in both directions:
+Since Amiga PC virtual hardfiles are raw HDD files with only a small header (containing geometry), you can not use it out-of-the-box with a DOS emulator on Windows/Linux/Mac like DOSBox or bochs. You need to convert this file and that is what this tool can do:
 
 **ABoot Amiga HDD file => DOSBox HDD File**
 
@@ -100,7 +100,7 @@ Copy the file 'PCHARDDISK.aboot' to your Amiga and use it as a PC virtual harddi
 
 Copy file to the Amiga hard disk.
 
-Adjust filename of the hard disk image in ```sys:PC/system/aboot.ctrl```
+Adjust the content of ```sys:PC/system/aboot.ctrl``` to point to the new image file.
 
 Restart. Amiga PC bridgeboard will boot from fresh created hard disk image.
 
