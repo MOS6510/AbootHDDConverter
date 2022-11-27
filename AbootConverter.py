@@ -35,7 +35,7 @@ def inputNumber(str, min, max, default) -> int:
             print("Please enter a valid integer!")
 
 
-def detectFlatHardDiskGeometry(filename): # -> (int, int, int):
+def detectFlatHardDiskGeometry(filename):
     # Detect geometry of a flat harddisk file.
     # Take the file size and create a proper CHS for that.
     realFileSize = os.path.getsize(filename)

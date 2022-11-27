@@ -1,13 +1,13 @@
 # ABOOT HDD Image Converter
-A small tool to convert Amiga PC Bridgeboard (A2088/A2286/A2386) virtual HDD files to harddisk images usable with DOSBox or Bochs DOS emulators on Windows/Linux/Mac and vice versa.
+A small tool to convert Amiga PC Bridgeboard (A2088/A2286/A2386) virtual HDD files to hard disk images usable with DOSBox or Bochs DOS emulators on Windows/Linux/Mac and vice versa.
 
-Since Amiga PC virtual hardfiles are raw HDD files with only a small header (containing geometry), you can not use it out-of-the-box with a DOS emulator on Windows/Linux/Mac like DOSBox or bochs. You need to convert this file and that is what this tool can do:
+Since Amiga PC virtual hard files are raw HDD files with only a small header (containing geometry), you can not use it out-of-the-box with a DOS emulator on Windows/Linux/Mac like DOSBox or bochs. You need to convert this file and that is what this tool can do:
 
 **ABoot Amiga HDD file => DOSBox HDD File**
 
 **DOSBox HDD File => ABoot Amiga HDD file**
 
-Usefull if you want to create hard disk files for your Amiga Bridgeboard on Mac/Windowsd/Linux or to read and modify these files with DOSBox / Bochs.
+Usefull if you want to create hard disk files for your Amiga Bridgeboard on Mac/Windows/Linux or to read and modify these files with DOSBox / Bochs.
 
 # How to use
 ## Create a PC virtual disk image for Amiga PC Bridgeboard (A2088/A2286/A2386) on a Mac/Linux/Windows
@@ -54,7 +54,7 @@ The following line should appear in your bochsrc:
   ata0-master: type=disk, path="PCHARDDISK.img", mode=flat
 ```
 
-Mount created image in DOSBox (or bochs):
+Now mount the created image in DOSBox (or bochs):
 
 ```
 IMGMOUNT 2 <PathTo>/PCHARDDISK.img -size 512,63,16,20 -t hdd -fs none
@@ -66,42 +66,47 @@ Boot with MSDOS 6.22 floppy image (swap floppy files with CTRL-F4 keys):
 boot DOS622-1.img DOS622-2.img DOS6.22-3.img -l c
 ```
 
-Format image:
+Format the hard disk file:
 
 ```
 format c: /s
 ```
 
-Install MSDOS:
+Install (MS)DOS:
 
 ```
 A:setup
 ```
 
-Do what ever you like to do with the fresh created MSDOS image...
+Do what ever you like to do with the fresh created (MS)DOS image...
 
 Convert raw DOSBox hard disk image to ABOOT file usable for PC Bridgeboard:
 
+
 ```
 ./AbootConverter.py PCHARDDISK.img 
-Amiga Bridgeboard Aboot HDD file converter V0.1 by Heiko Pruessing in 2021
+==========================================
+Amiga Bridgeboard Aboot HDD file converter
+(V0.2 by Heiko Prüssing in 2021,2022)
 
-File 'PCHARDDISK.img' seems a raw HDD image from Bochs / DOSBox.
-Should the file be converted to a Amiga PC virtual HDD image (usable as hard disk for a Amiga Bridgeboard) [y/n]? y
-Output file? (Default 'PCHARDDISK.aboot-out'): PCHARDDISK.aboot
-headers : 16
-sectors : 63
-cylinders : 20
+Using file: PCHARDDISK.img
+Detected file type: 'flat HDD image Bochs / DOSBox'.
+Converting file to a Commodore Bridgeboard autoboot harddisk image file...
+Output file name? (default 'PCHARDDISK.aboot-out'): 
+Please enter the hardfile geometry:'
+Cylinders [1..1024] (default 20) : 20
+Headers   [1..16]   (default 16) : 16
+Sectors   [1..64]   (default 63) : 63
 
-The hard disk will be of file size 10322432 (bytes)
-Usable for DOS will be 10321920 (bytes)
-Copy the file 'PCHARDDISK.aboot' to your Amiga and use it as a PC virtual harddisk for a Bridgeboard.
+Resulting hard disk file size: 10322432 (bytes).
+Usable for DOS will be 9 MB.
+Successfully. Now you can use 'PCHARDDISK.aboot-out' as a autoboot harddisk file for your Amiga Bridgeboard. Have fun ;)
 ```
 
-Copy file to the Amiga hard disk.
+Copy the file to your Amiga.
 
-Adjust the content of ```sys:PC/system/aboot.ctrl``` to point to the new image file.
+Adjust the content of ```sys:PC/system/aboot.ctrl``` (main configuration of the Bridgeboard) to point to the new image file.
 
-Restart. Amiga PC bridgeboard will boot from fresh created hard disk image.
+Restart. Amiga PC bridgeboard should now boot from fresh created hard disk image.
 
-:-) 
+Enjoy :-) 
