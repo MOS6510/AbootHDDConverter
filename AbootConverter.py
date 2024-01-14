@@ -36,7 +36,7 @@ def inputNumber(str, min, max, default) -> int:
 
 
 def detectFlatHardDiskGeometry(filename):
-    # Detect geometry of a flat harddisk file.abootHeaderSize
+    # Detect geometry of a flat harddisk file.
     # Take the file size and create a proper CHS for that.
     realFileSize = os.path.getsize(filename)
     # print("realsize size = %d" % realFileSize)
