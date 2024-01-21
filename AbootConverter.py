@@ -88,10 +88,14 @@ def main(argv):
         if ofilestring == "":
             ofilestring = filenameout
 
+        print("Skipping rest of ABOOT header...")
+        fin.read(abootHeaderSize - 14)
+
+        print("Writing stripped HDD image file...")
         fout = open(filenameout, "wb")
         fout.write(fin.read())
         fout.close()
-        print("Successfully. You can mount the image now with DOSBox command:\n")
+        print("Success! You can mount the image now with DOSBox command:\n")
         print(" IMGMOUNT C %s -size 512,%d,%d,%d -t hdd\n" % (filenameout, sectors, heads, cylinders))
 
     elif detectFlatImage(filename):
